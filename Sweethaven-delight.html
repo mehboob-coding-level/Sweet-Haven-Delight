@@ -1,0 +1,1854 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sweet-Havean — Sweetness in Every Bite</title>
+    <meta
+      name="description"
+      content="Sweet-Havean premium brownies, pastries and cookies."
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Pacifico&display=swap");
+
+      :root {
+        --brown: #351514;
+        --brown2: #5a211b;
+        --gold: #b98435;
+        --cream: #fffaf6;
+        --soft: #f7eee8;
+        --text: #241b1a;
+        --muted: #746866;
+        --line: #eaded7;
+        --white: #fff;
+        --shadow: 0 18px 50px rgba(53, 21, 20, 0.1);
+      }
+      * {
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: "DM Sans", sans-serif;
+        color: var(--text);
+        background: #fff;
+      }
+      button,
+      input,
+      textarea,
+      select {
+        font: inherit;
+      }
+      button {
+        cursor: pointer;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .container {
+        width: min(1160px, 92%);
+        margin: auto;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(234, 222, 215, 0.7);
+      }
+      .nav {
+        height: 82px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: "Pacifico", cursive;
+        color: var(--brown);
+        font-size: 25px;
+      }
+      .logoMark {
+        width: 48px;
+        height: 48px;
+        border: 3px solid var(--brown);
+        border-radius: 48% 48% 42% 42%;
+        display: grid;
+        place-items: center;
+        font-size: 23px;
+        position: relative;
+      }
+      .logoMark:before {
+        content: "";
+        position: absolute;
+        width: 23px;
+        height: 13px;
+        border: 3px solid var(--brown);
+        border-bottom: 0;
+        border-radius: 50% 50% 0 0;
+        top: -12px;
+      }
+      .logo small {
+        display: block;
+        font-family: "DM Sans";
+        font-size: 8px;
+        letter-spacing: 3px;
+        text-align: center;
+        margin-top: -5px;
+      }
+      nav {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        font-size: 14px;
+      }
+      nav a {
+        padding: 30px 0;
+        position: relative;
+      }
+      nav a.active:after {
+        content: "";
+        height: 2px;
+        background: var(--brown);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 20px;
+      }
+      .navActions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .iconBtn {
+        border: 0;
+        background: transparent;
+        font-size: 20px;
+        color: var(--brown);
+      }
+      .cartBtn {
+        position: relative;
+      }
+      .badge {
+        position: absolute;
+        top: -7px;
+        right: -8px;
+        background: var(--brown);
+        color: #fff;
+        border-radius: 50%;
+        font-size: 10px;
+        width: 18px;
+        height: 18px;
+        display: grid;
+        place-items: center;
+      }
+      .btn {
+        border: 0;
+        border-radius: 28px;
+        padding: 14px 24px;
+        font-weight: 700;
+        transition: 0.25s;
+        display: inline-flex;
+        gap: 9px;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn.primary {
+        background: var(--brown);
+        color: white;
+        box-shadow: 0 8px 20px rgba(53, 21, 20, 0.18);
+      }
+      .btn.primary:hover {
+        transform: translateY(-2px);
+        background: #24100f;
+      }
+      .btn.outline {
+        background: white;
+        border: 1px solid #8c6d66;
+        color: var(--brown);
+      }
+      .btn.small {
+        padding: 10px 18px;
+        font-size: 13px;
+      }
+      .menuToggle {
+        display: none;
+      }
+
+      .hero {
+        min-height: 610px;
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            circle at 72% 45%,
+            rgba(255, 255, 255, 0.2),
+            transparent 35%
+          ),
+          linear-gradient(
+            90deg,
+            #fff 0%,
+            #fff 37%,
+            rgba(255, 255, 255, 0.72) 49%,
+            rgba(255, 255, 255, 0.08) 100%
+          ),
+          url("https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1800&q=90")
+            center/cover;
+      }
+      .hero:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.95) 0 25%,
+          rgba(255, 255, 255, 0.55) 42%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .heroContent {
+        position: relative;
+        z-index: 2;
+        padding: 100px 0 80px;
+        width: 55%;
+      }
+      .kicker {
+        letter-spacing: 5px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 18px;
+      }
+      .script {
+        font-family: "Pacifico", cursive;
+        color: var(--brown);
+      }
+      .hero h1 {
+        font-family: "Pacifico", cursive;
+        font-weight: 400;
+        color: var(--brown);
+        font-size: 68px;
+        line-height: 1.03;
+        margin: 0 0 18px;
+      }
+      .under {
+        letter-spacing: 6px;
+        font-size: 13px;
+        margin: 0 0 25px;
+        color: #3e2927;
+      }
+      .hero p {
+        max-width: 480px;
+        line-height: 1.8;
+        color: #4e4543;
+      }
+      .heroBtns {
+        display: flex;
+        gap: 12px;
+        margin: 28px 0 38px;
+      }
+      .perks {
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+      }
+      .perk {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        font-size: 13px;
+      }
+      .perk span:first-child {
+        font-size: 23px;
+        color: var(--brown);
+      }
+      .perk + .perk {
+        border-left: 1px solid #ddd0ca;
+        padding-left: 25px;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+      .center {
+        text-align: center;
+      }
+      .sectionTitle {
+        font-family: "Playfair Display", serif;
+        font-size: 38px;
+        margin: 7px 0 8px;
+      }
+      .sub {
+        color: var(--muted);
+      }
+      .heartLine {
+        color: var(--brown);
+        font-size: 24px;
+        letter-spacing: 18px;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 32px;
+      }
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 8px 25px rgba(53, 21, 20, 0.04);
+        transition: 0.25s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+      }
+      .cardImg {
+        height: 260px;
+        background-size: cover;
+        background-position: center;
+      }
+      .cardBody {
+        text-align: center;
+        padding: 18px 18px 24px;
+      }
+      .card h3 {
+        font-family: "Playfair Display";
+        font-size: 23px;
+        margin: 4px;
+      }
+      .card p {
+        font-size: 13px;
+        color: var(--muted);
+        margin: 8px 0 18px;
+      }
+      .productGrid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin-top: 30px;
+      }
+      .product {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(53, 21, 20, 0.05);
+      }
+      .product .pic {
+        height: 205px;
+        background-size: cover;
+        background-position: center;
+      }
+      .productInfo {
+        padding: 15px;
+      }
+      .productInfo h4 {
+        margin: 0 0 6px;
+        font-family: "Playfair Display";
+        font-size: 20px;
+      }
+      .price {
+        font-weight: 700;
+        color: var(--brown);
+        margin-bottom: 12px;
+      }
+      .productActions {
+        display: flex;
+        gap: 8px;
+      }
+      .productActions button {
+        flex: 1;
+      }
+
+      .story {
+        background: #fcf4ef;
+      }
+      .storyGrid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr 1fr;
+        align-items: center;
+        gap: 30px;
+      }
+      .story h2 {
+        font-family: "Pacifico";
+        font-weight: 400;
+        color: var(--brown);
+        font-size: 40px;
+        line-height: 1.15;
+      }
+      .story p {
+        color: var(--muted);
+        line-height: 1.8;
+      }
+      .storyImage {
+        height: 290px;
+        border-radius: 12px;
+        background: url("https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1000&q=90")
+          center/cover;
+      }
+      .highlights {
+        border-left: 1px solid #e4d8d2;
+        padding-left: 28px;
+      }
+      .highlight {
+        display: flex;
+        gap: 13px;
+        margin: 20px 0;
+        font-size: 13px;
+      }
+      .highlight b {
+        display: block;
+        margin-bottom: 3px;
+      }
+
+      footer {
+        padding: 28px 0 20px;
+        border-top: 1px solid var(--line);
+        background: white;
+      }
+      .footerTop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 25px;
+      }
+      .social {
+        display: flex;
+        gap: 15px;
+        font-weight: 700;
+      }
+      .copyright {
+        text-align: center;
+        border-top: 1px solid var(--line);
+        padding-top: 18px;
+        margin-top: 20px;
+        font-size: 12px;
+        color: #999;
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(25, 12, 11, 0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        z-index: 100;
+      }
+      .modal.show {
+        display: flex;
+      }
+      .modalBox {
+        background: #fff;
+        border-radius: 20px;
+        width: min(620px, 100%);
+        max-height: 90vh;
+        overflow: auto;
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.25);
+        padding: 28px;
+      }
+      .modalHead {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .modalHead h2 {
+        font-family: "Playfair Display";
+        margin: 0;
+        font-size: 30px;
+      }
+      .close {
+        border: 0;
+        background: #f5eeeb;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        font-size: 22px;
+      }
+      .form {
+        display: grid;
+        gap: 13px;
+      }
+      .form label {
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .form input,
+      .form textarea,
+      .form select {
+        width: 100%;
+        border: 1px solid #dfd1ca;
+        border-radius: 10px;
+        padding: 12px 13px;
+        outline: none;
+      }
+      .form input:focus,
+      .form textarea:focus {
+        border-color: #8c6259;
+        box-shadow: 0 0 0 3px rgba(140, 98, 89, 0.1);
+      }
+      .form textarea {
+        min-height: 130px;
+        resize: vertical;
+      }
+      .cartRow {
+        display: grid;
+        grid-template-columns: 70px 1fr auto;
+        gap: 12px;
+        align-items: center;
+        border-bottom: 1px solid var(--line);
+        padding: 13px 0;
+      }
+      .cartThumb {
+        width: 70px;
+        height: 60px;
+        border-radius: 8px;
+        background-size: cover;
+        background-position: center;
+      }
+      .qty {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .qty button {
+        border: 1px solid #ddd;
+        background: white;
+        border-radius: 6px;
+        width: 25px;
+        height: 25px;
+      }
+      .total {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 800;
+        font-size: 18px;
+        padding: 18px 0;
+      }
+      .empty {
+        text-align: center;
+        color: var(--muted);
+        padding: 35px;
+      }
+
+      .admin {
+        position: fixed;
+        inset: 0;
+        background: #f6f1ee;
+        z-index: 200;
+        display: none;
+        overflow: auto;
+      }
+      .admin.show {
+        display: block;
+      }
+      .adminShell {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        min-height: 100vh;
+      }
+      .adminSide {
+        background: #24100f;
+        color: white;
+        padding: 24px;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+      }
+      .adminBrand {
+        font-family: "Pacifico";
+        font-size: 22px;
+        margin-bottom: 35px;
+      }
+      .adminSide button {
+        width: 100%;
+        background: transparent;
+        border: 0;
+        color: #ddd;
+        text-align: left;
+        padding: 13px;
+        border-radius: 10px;
+        margin: 3px 0;
+      }
+      .adminSide button.active,
+      .adminSide button:hover {
+        background: #4b211d;
+        color: #fff;
+      }
+      .adminMain {
+        padding: 28px;
+      }
+      .adminTop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+      }
+      .adminTop h1 {
+        font-family: "Playfair Display";
+        margin: 0;
+      }
+      .statGrid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+      }
+      .stat {
+        background: #fff;
+        border: 1px solid #eaded7;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 7px 22px rgba(53, 21, 20, 0.05);
+      }
+      .stat small {
+        color: #8d7b75;
+      }
+      .stat strong {
+        font-size: 28px;
+        display: block;
+        margin-top: 7px;
+        color: var(--brown);
+      }
+      .adminPanel {
+        background: white;
+        border: 1px solid #eaded7;
+        border-radius: 16px;
+        padding: 20px;
+        margin-top: 20px;
+      }
+      .adminPanel h3 {
+        font-family: "Playfair Display";
+        margin-top: 0;
+      }
+      .adminTable {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .adminTable th,
+      .adminTable td {
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+        text-align: left;
+        font-size: 13px;
+      }
+      .adminTable th {
+        color: #7d6c67;
+      }
+      .adminActions {
+        display: flex;
+        gap: 8px;
+      }
+
+      .adminPanelHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 18px;
+        flex-wrap: wrap;
+      }
+      .adminToolbar {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .adminSearch {
+        min-width: 220px;
+        border: 1px solid #dfd1ca;
+        border-radius: 9px;
+        padding: 10px 12px;
+        outline: none;
+      }
+      .adminTableWrap {
+        overflow: auto;
+      }
+      .adminTable input,
+      .adminTable select {
+        max-width: 180px;
+      }
+      .adminThumb {
+        width: 46px;
+        height: 42px;
+        border-radius: 7px;
+        background-size: cover;
+        background-position: center;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 8px;
+      }
+      .statusBadge {
+        display: inline-block;
+        padding: 5px 9px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 700;
+        background: #f3e8e3;
+        color: #5a211b;
+      }
+      .adminEmpty {
+        padding: 35px;
+        text-align: center;
+        color: #88756f;
+      }
+      .danger {
+        background: #fff;
+        border: 1px solid #c99b92;
+        color: #8d2f25;
+      }
+      .danger:hover {
+        background: #fff3f1;
+      }
+      .success {
+        background: #eff8ef;
+        border: 1px solid #b8d7b8;
+        color: #2f6b32;
+      }
+      @media (max-width: 600px) {
+        .adminSearch {
+          min-width: 100%;
+          width: 100%;
+        }
+        .adminPanelHeader {
+          align-items: stretch;
+        }
+        .adminToolbar {
+          width: 100%;
+        }
+      }
+      .toast {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        background: #2d1715;
+        color: white;
+        padding: 13px 18px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        transform: translateY(20px);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.25s;
+        z-index: 300;
+      }
+      .toast.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      @media (max-width: 900px) {
+        nav {
+          display: none;
+        }
+        .menuToggle {
+          display: block;
+        }
+        .navActions .btn.primary {
+          display: none;
+        }
+        .navActions .adminAccess {
+          display: inline-flex;
+          padding: 9px 12px;
+        }
+        .heroContent {
+          width: 70%;
+          padding: 80px 0;
+        }
+        .hero h1 {
+          font-size: 52px;
+        }
+        .cards {
+          grid-template-columns: 1fr;
+        }
+        .productGrid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .storyGrid {
+          grid-template-columns: 1fr;
+        }
+        .highlights {
+          border-left: 0;
+          border-top: 1px solid #e4d8d2;
+          padding: 20px 0 0;
+        }
+        .adminShell {
+          grid-template-columns: 1fr;
+        }
+        .adminSide {
+          position: relative;
+          height: auto;
+        }
+        .statGrid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .nav {
+          height: 70px;
+        }
+        .logo {
+          font-size: 19px;
+        }
+        .logoMark {
+          width: 40px;
+          height: 40px;
+        }
+        .hero {
+          min-height: 650px;
+          background-position: 65% center;
+        }
+        .hero:after {
+          background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.95),
+            rgba(255, 255, 255, 0.72)
+          );
+        }
+        .heroContent {
+          width: 100%;
+          padding: 70px 0;
+        }
+        .hero h1 {
+          font-size: 45px;
+        }
+        .perks {
+          display: grid;
+        }
+        .perk + .perk {
+          border-left: 0;
+          padding-left: 0;
+        }
+        .productGrid {
+          grid-template-columns: 1fr;
+        }
+        .section {
+          padding: 55px 0;
+        }
+        .sectionTitle {
+          font-size: 32px;
+        }
+        .footerTop {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .adminMain {
+          padding: 17px;
+        }
+        .statGrid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a class="logo" href="#home">
+          <span class="logoMark">♡</span>
+          <span>Sweet-Havean<small>SWEETNESS IN EVERY BITE</small></span>
+        </a>
+        <nav>
+          <a href="#home" class="active">Home</a><a href="#menu">Menu</a
+          ><a href="#about">About</a><a href="#gallery">Gallery</a
+          ><a href="#contact">Contact</a>
+        </nav>
+        <div class="navActions">
+          <button class="iconBtn" onclick="focusSearch()" title="Search">
+            ⌕
+          </button>
+          <button class="iconBtn cartBtn" onclick="openCart()" title="Cart">
+            🛒<span id="cartBadge" class="badge">0</span>
+          </button>
+          <button
+            class="btn outline small adminAccess"
+            onclick="openModal('loginModal')"
+          >
+            Admin
+          </button>
+          <button class="btn primary small" onclick="openCart()">
+            Order Now →
+          </button>
+          <button class="iconBtn menuToggle" onclick="mobileNav()">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="container heroContent">
+          <div class="kicker">PREMIUM BAKED GOODS</div>
+          <h1>Sweet-Havean</h1>
+          <div class="under">SWEETNESS IN EVERY BITE</div>
+          <p>
+            Indulge in our freshly baked brownies, delicious pastries and
+            cookies. Made with love, for every sweet moment in your life.
+          </p>
+          <div class="heroBtns">
+            <button
+              class="btn primary"
+              onclick="document.querySelector('#menu').scrollIntoView()"
+            >
+              Shop Now →</button
+            ><button class="btn outline" onclick="openContact()">
+              Contact Us
+            </button>
+          </div>
+          <div class="perks">
+            <div class="perk"><span>♧</span>Freshly<br />Baked</div>
+            <div class="perk"><span>♡</span>Premium<br />Ingredients</div>
+            <div class="perk"><span>♧</span>Fast &amp; Safe<br />Delivery</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container center">
+          <div class="heartLine">— ♡ —</div>
+          <h2 class="sectionTitle">Our Specialties</h2>
+          <div class="sub">Freshly baked. Lovingly made.</div>
+          <div class="cards">
+            <article class="card">
+              <div
+                class="cardImg"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1564355808539-22fda35bed7e?auto=format&fit=crop&w=900&q=90&quot;);
+                "
+              ></div>
+              <div class="cardBody">
+                <h3>Brownies</h3>
+                <p>Rich &nbsp; • &nbsp; Fudgy &nbsp; • &nbsp; Irresistible</p>
+                <button
+                  class="btn outline small"
+                  onclick="filterMenu('Brownies')"
+                >
+                  Explore →
+                </button>
+              </div>
+            </article>
+            <article class="card">
+              <div
+                class="cardImg"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=90&quot;);
+                "
+              ></div>
+              <div class="cardBody">
+                <h3>Pastries</h3>
+                <p>Flaky &nbsp; • &nbsp; Buttery &nbsp; • &nbsp; Fresh</p>
+                <button
+                  class="btn outline small"
+                  onclick="filterMenu('Pastries')"
+                >
+                  Explore →
+                </button>
+              </div>
+            </article>
+            <article class="card">
+              <div
+                class="cardImg"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=900&q=90&quot;);
+                "
+              ></div>
+              <div class="cardBody">
+                <h3>Cookies</h3>
+                <p>Crispy &nbsp; • &nbsp; Chewy &nbsp; • &nbsp; Delicious</p>
+                <button
+                  class="btn outline small"
+                  onclick="filterMenu('Cookies')"
+                >
+                  Explore →
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu" class="section" style="background: #fffaf7">
+        <div class="container">
+          <div class="center">
+            <div class="heartLine">— ♡ —</div>
+            <h2 class="sectionTitle">Our Menu</h2>
+            <div class="sub">
+              Choose your favorite sweet and add it to your cart.
+            </div>
+          </div>
+          <div id="productGrid" class="productGrid"></div>
+        </div>
+      </section>
+
+      <section id="about" class="section story">
+        <div class="container storyGrid">
+          <div>
+            <h2>Life is Better<br />with Sweets ♡</h2>
+            <p>
+              From classic favorites to special treats, we bring happiness in
+              every bite.
+            </p>
+            <button class="btn primary" onclick="openCart()">
+              Order Now →
+            </button>
+          </div>
+          <div class="storyImage"></div>
+          <div class="highlights">
+            <div class="highlight">
+              <span>♡</span>
+              <div><b>Freshly Baked</b>Every Day</div>
+            </div>
+            <div class="highlight">
+              <span>♧</span>
+              <div><b>Handcrafted</b>with Love</div>
+            </div>
+            <div class="highlight">
+              <span>✧</span>
+              <div><b>Made with</b>Premium Ingredients</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section">
+        <div class="container center">
+          <div class="heartLine">— ♡ —</div>
+          <h2 class="sectionTitle">Sweet Gallery</h2>
+          <div class="sub">A little look at our delicious world.</div>
+          <div class="cards">
+            <div class="card">
+              <div
+                class="cardImg"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=900&q=90&quot;);
+                "
+              ></div>
+            </div>
+            <div class="card">
+              <div
+                class="cardImg"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=900&q=90&quot;);
+                "
+              ></div>
+            </div>
+            <div class="card">
+              <div
+                class="cardImg"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=900&q=90&quot;);
+                "
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section" style="padding-top: 30px">
+        <div class="container center">
+          <div class="heartLine">— ♡ —</div>
+          <h2 class="sectionTitle">Let's Talk Sweets</h2>
+          <p class="sub">Have a question or want to place a custom order?</p>
+          <button class="btn primary" onclick="openContact()">
+            Contact Us →
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footerTop">
+          <a class="logo" href="#home"
+            ><span class="logoMark">♡</span
+            ><span>Sweet-Havean<small>SWEETNESS IN EVERY BITE</small></span></a
+          >
+          <div>
+            Home &nbsp; | &nbsp; Menu &nbsp; | &nbsp; About &nbsp; | &nbsp;
+            Gallery &nbsp; | &nbsp; Contact &nbsp; | &nbsp;
+            <button
+              onclick="openModal('loginModal')"
+              style="
+                border: 0;
+                background: none;
+                color: #351514;
+                font-weight: 700;
+                cursor: pointer;
+              "
+            >
+              Admin Login
+            </button>
+          </div>
+          <div class="social">◎ f ♪ ▶ ◉</div>
+        </div>
+        <div class="copyright">© 2026 Sweet-Havean. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <!-- CART -->
+    <div id="cartModal" class="modal">
+      <div class="modalBox">
+        <div class="modalHead">
+          <h2>Your Cart</h2>
+          <button class="close" onclick="closeModal('cartModal')">×</button>
+        </div>
+        <div id="cartItems"></div>
+        <div id="cartTotal"></div>
+        <button class="btn primary" style="width: 100%" onclick="checkout()">
+          Proceed to Order →
+        </button>
+      </div>
+    </div>
+
+    <!-- ORDER SUCCESS -->
+    <div id="successModal" class="modal">
+      <div class="modalBox" style="max-width: 520px">
+        <div class="modalHead">
+          <h2>Order Confirmation</h2>
+          <button class="close" onclick="closeModal('successModal')">×</button>
+        </div>
+        <div id="successContent"></div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div id="contactModal" class="modal">
+      <div class="modalBox">
+        <div class="modalHead">
+          <h2>Contact Sweet-Havean</h2>
+          <button class="close" onclick="closeModal('contactModal')">×</button>
+        </div>
+        <form class="form" onsubmit="sendContact(event)">
+          <label>Your Name</label
+          ><input id="cName" required placeholder="Enter your name" />
+          <label>Your Email</label
+          ><input
+            id="cEmail"
+            type="email"
+            required
+            placeholder="you@example.com"
+          />
+          <label>Your Message</label
+          ><textarea
+            id="cMessage"
+            required
+            placeholder="Write your message or order request..."
+          ></textarea>
+          <small style="color: #87756f"
+            >For your security, this form does not collect or send account
+            passwords.</small
+          >
+          <button class="btn primary" type="submit">Send Message →</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ADMIN LOGIN -->
+    <div id="loginModal" class="modal">
+      <div class="modalBox" style="max-width: 430px">
+        <div class="modalHead">
+          <h2>Admin Login</h2>
+          <button class="close" onclick="closeModal('loginModal')">×</button>
+        </div>
+        <form class="form" onsubmit="adminLogin(event)">
+          <label>Username</label
+          ><input id="adminUser" autocomplete="username" required />
+          <label>Password</label
+          ><input
+            id="adminPass"
+            type="password"
+            autocomplete="current-password"
+            required
+          />
+          <button class="btn primary" type="submit">Enter Dashboard →</button>
+          <div style="text-align: center; color: #8a7771; font-size: 12px">
+            Username: Mehboob-Studio
+          </div>
+        </form>
+        <p style="font-size: 12px; color: #88736e; margin-top: 15px">
+          Demo note: because this is a single HTML file, admin credentials are
+          stored in the browser code and are not suitable for real production
+          security.
+        </p>
+      </div>
+    </div>
+
+    <!-- ADMIN DASHBOARD -->
+    <div id="admin" class="admin">
+      <div class="adminShell">
+        <aside class="adminSide">
+          <div class="adminBrand">Sweet-Havean</div>
+          <button class="active" onclick="adminNav('dashboard', this)">
+            ⌂ Dashboard
+          </button>
+          <button onclick="adminNav('products', this)">▣ Products</button>
+          <button onclick="adminNav('orders', this)">▤ Orders</button>
+          <button onclick="adminNav('messages', this)">✉ Messages</button>
+          <button onclick="adminNav('settings', this)">⚙ Settings</button>
+          <button style="margin-top: 35px" onclick="closeAdmin()">
+            ← Back to Website
+          </button>
+        </aside>
+        <main class="adminMain">
+          <div class="adminTop">
+            <div>
+              <h1 id="adminTitle">Dashboard</h1>
+              <div style="color: #8b7770">Welcome back, Mehboob-Studio.</div>
+            </div>
+            <button class="btn primary small" onclick="closeAdmin()">
+              View Store ↗
+            </button>
+          </div>
+          <div id="adminContent"></div>
+        </main>
+      </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script>
+      const ADMIN_USER = "Mehboob-Studio";
+      const ADMIN_PASS = "10581058";
+      const DEFAULT_OWNER_EMAIL = "codewithmehboob1058@gmail.com";
+      function getOwnerEmail() {
+        return localStorage.getItem("sweetOwnerEmail") || DEFAULT_OWNER_EMAIL;
+      }
+
+      const defaultProducts = [
+        {
+          id: 1,
+          name: "Fudgy Brownie",
+          cat: "Brownies",
+          price: 450,
+          img: "https://images.unsplash.com/photo-1564355808539-22fda35bed7e?auto=format&fit=crop&w=900&q=90",
+        },
+        {
+          id: 2,
+          name: "Black Forest Pastry",
+          cat: "Pastries",
+          price: 550,
+          img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=90",
+        },
+        {
+          id: 3,
+          name: "Chocolate Chip Cookies",
+          cat: "Cookies",
+          price: 350,
+          img: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=900&q=90",
+        },
+        {
+          id: 4,
+          name: "Chocolate Brownie Box",
+          cat: "Brownies",
+          price: 900,
+          img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=900&q=90",
+        },
+        {
+          id: 5,
+          name: "Creamy Cherry Pastry",
+          cat: "Pastries",
+          price: 600,
+          img: "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=900&q=90",
+        },
+        {
+          id: 6,
+          name: "Double Choco Cookies",
+          cat: "Cookies",
+          price: 400,
+          img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=900&q=90",
+        },
+      ];
+      let products = JSON.parse(
+        localStorage.getItem("sweetProducts") || "null",
+      );
+      if (!Array.isArray(products) || !products.length) {
+        products = defaultProducts.map((x) => ({ ...x }));
+        localStorage.setItem("sweetProducts", JSON.stringify(products));
+      }
+
+      let cart = JSON.parse(localStorage.getItem("sweetCart") || "[]");
+      let orders = JSON.parse(localStorage.getItem("sweetOrders") || "[]");
+      let messages = JSON.parse(localStorage.getItem("sweetMessages") || "[]");
+
+      // Restore administrator price changes after the page is reopened.
+      const savedPrices = JSON.parse(
+        localStorage.getItem("sweetProductPrices") || "{}",
+      );
+      products.forEach((p) => {
+        if (savedPrices[p.id] !== undefined)
+          p.price = Number(savedPrices[p.id]);
+      });
+
+      function money(n) {
+        return "Rs. " + Number(n).toLocaleString("en-PK");
+      }
+      function save() {
+        localStorage.setItem("sweetCart", JSON.stringify(cart));
+        localStorage.setItem("sweetOrders", JSON.stringify(orders));
+        localStorage.setItem("sweetMessages", JSON.stringify(messages));
+        localStorage.setItem("sweetProducts", JSON.stringify(products));
+      }
+      function toast(t) {
+        const x = document.getElementById("toast");
+        x.textContent = t;
+        x.classList.add("show");
+        setTimeout(() => x.classList.remove("show"), 2500);
+      }
+      function openModal(id) {
+        document.getElementById(id).classList.add("show");
+      }
+      function closeModal(id) {
+        document.getElementById(id).classList.remove("show");
+      }
+      function renderProducts(list = products) {
+        const grid = document.getElementById("productGrid");
+        grid.innerHTML = list
+          .map(
+            (p) =>
+              `<article class="product"><div class="pic" style="background-image:url('${p.img}')"></div><div class="productInfo"><h4>${p.name}</h4><div style="color:#88736e;font-size:12px">${p.cat}</div><div class="price">${money(p.price)}</div><div class="productActions"><button class="btn outline small" onclick="addToCart(${p.id})">Add to Cart</button><button class="btn primary small" onclick="buyNow(${p.id})">Buy Now</button></div></div></article>`,
+          )
+          .join("");
+      }
+      function addToCart(id) {
+        const p = products.find((x) => x.id === id),
+          item = cart.find((x) => x.id === id);
+        if (item) item.qty++;
+        else cart.push({ id, qty: 1 });
+        save();
+        updateBadge();
+        toast(p.name + " added to cart");
+      }
+      function buyNow(id) {
+        addToCart(id);
+        openCart();
+      }
+      function updateBadge() {
+        document.getElementById("cartBadge").textContent = cart.reduce(
+          (a, x) => a + x.qty,
+          0,
+        );
+      }
+      function openCart() {
+        renderCart();
+        openModal("cartModal");
+      }
+      function renderCart() {
+        const box = document.getElementById("cartItems");
+        if (!cart.length) {
+          box.innerHTML =
+            '<div class="empty">Your cart is empty.<br><br><button class="btn outline small" onclick="closeModal(\'cartModal\');document.querySelector(\'#menu\').scrollIntoView()">Browse Menu</button></div>';
+          document.getElementById("cartTotal").innerHTML = "";
+          return;
+        }
+        let total = 0;
+        box.innerHTML = cart
+          .map((i) => {
+            const p = products.find((x) => x.id === i.id);
+            total += p.price * i.qty;
+            return `<div class="cartRow"><div class="cartThumb" style="background-image:url('${p.img}')"></div><div><b>${p.name}</b><div style="font-size:12px;color:#88736e">${money(p.price)} × ${i.qty}</div><div class="qty"><button onclick="changeQty(${p.id},-1)">−</button><span>${i.qty}</span><button onclick="changeQty(${p.id},1)">+</button></div></div><b>${money(p.price * i.qty)}</b></div>`;
+          })
+          .join("");
+        document.getElementById("cartTotal").innerHTML =
+          `<div class="total"><span>Total</span><span>${money(total)}</span></div>`;
+      }
+      function changeQty(id, d) {
+        const i = cart.find((x) => x.id === id);
+        i.qty += d;
+        if (i.qty <= 0) cart = cart.filter((x) => x.id !== id);
+        save();
+        updateBadge();
+        renderCart();
+      }
+      function checkout() {
+        if (!cart.length) {
+          toast("Your cart is empty");
+          return;
+        }
+        const total = cart.reduce(
+          (a, i) => a + products.find((p) => p.id === i.id).price * i.qty,
+          0,
+        );
+        const items = [...cart];
+        const order = {
+          id: Date.now(),
+          items,
+          total,
+          status: "New",
+          date: new Date().toLocaleString(),
+          customer: "Website Customer",
+        };
+        orders.push(order);
+        save();
+        cart = [];
+        save();
+        updateBadge();
+        closeModal("cartModal");
+        showOrderSuccess(order);
+      }
+
+      function showOrderSuccess(order) {
+        const lines = order.items
+          .map((i) => {
+            const p = products.find((x) => x.id === i.id);
+            return `<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee"><span>${escapeHtml(p.name)} × ${i.qty}</span><b>${money(p.price * i.qty)}</b></div>`;
+          })
+          .join("");
+        const modal = document.getElementById("successModal");
+        document.getElementById("successContent").innerHTML = `
+   <div style="text-align:center;font-size:52px;color:#5a211b">✓</div>
+   <h2 style="font-family:'Playfair Display';text-align:center;margin:5px 0">Order Received!</h2>
+   <p style="text-align:center;color:#746866">Your order <b>#${order.id}</b> has been saved successfully.</p>
+   <div style="margin:20px 0">${lines}</div>
+   <div style="display:flex;justify-content:space-between;font-size:19px;font-weight:800;padding:14px 0;border-top:2px solid #351514"><span>Total</span><span>${money(order.total)}</span></div>
+   <p style="font-size:13px;color:#746866;background:#faf4f0;padding:12px;border-radius:10px">
+     The order is now visible in the admin dashboard under <b>Orders</b>. No external email application is required.
+   </p>
+   <button class="btn primary" style="width:100%" onclick="closeModal('successModal')">Continue Shopping →</button>
+ `;
+        openModal("successModal");
+      }
+      function openContact() {
+        openModal("contactModal");
+      }
+      function sendContact(e) {
+        e.preventDefault();
+        const name = document.getElementById("cName").value.trim(),
+          email = document.getElementById("cEmail").value.trim(),
+          msg = document.getElementById("cMessage").value.trim();
+        messages.push({
+          id: Date.now(),
+          name,
+          email,
+          msg,
+          date: new Date().toLocaleString(),
+        });
+        save();
+        e.target.reset();
+        closeModal("contactModal");
+        openMessageSuccess(name, email, msg);
+      }
+      function openMessageSuccess(name, email, msg) {
+        const safeName = escapeHtml(name),
+          safeEmail = escapeHtml(email),
+          safeMsg = escapeHtml(msg).replace(/\n/g, "<br>");
+        document.getElementById("successContent").innerHTML = `
+   <div style="text-align:center;font-size:52px;color:#5a211b">✓</div>
+   <h2 style="font-family:'Playfair Display';text-align:center;margin:5px 0">Message Received!</h2>
+   <p style="text-align:center;color:#746866">Thank you, <b>${safeName}</b>. Your message has been saved.</p>
+   <div style="background:#faf4f0;padding:15px;border-radius:10px;margin:18px 0"><b>Email:</b> ${safeEmail}<br><br><b>Message:</b><br>${safeMsg}</div>
+   <p style="font-size:13px;color:#746866">The message is available in the admin dashboard under <b>Messages</b>.</p>
+   <button class="btn primary" style="width:100%" onclick="closeModal('successModal')">Done</button>`;
+        openModal("successModal");
+      }
+      function focusSearch() {
+        const q = prompt("What are you looking for?");
+        if (!q) return;
+        const found = products.filter((p) =>
+          (p.name + " " + p.cat).toLowerCase().includes(q.toLowerCase()),
+        );
+        document.querySelector("#menu").scrollIntoView();
+        renderProducts(found);
+        toast(
+          found.length
+            ? found.length + " item(s) found"
+            : "No matching item found",
+        );
+      }
+      function filterMenu(cat) {
+        document.querySelector("#menu").scrollIntoView();
+        renderProducts(products.filter((p) => p.cat === cat));
+        toast(cat + " selected");
+      }
+      function mobileNav() {
+        const n = document.querySelector("nav");
+        n.style.display = n.style.display === "flex" ? "none" : "flex";
+        n.style.position = "absolute";
+        n.style.top = "70px";
+        n.style.left = "0";
+        n.style.right = "0";
+        n.style.background = "#fff";
+        n.style.padding = "10px 5%";
+        n.style.flexDirection = "column";
+        n.style.boxShadow = "0 15px 30px rgba(0,0,0,.1)";
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          document
+            .querySelectorAll(".modal.show")
+            .forEach((x) => x.classList.remove("show"));
+          if (document.getElementById("admin").classList.contains("show"))
+            closeAdmin();
+        }
+      });
+      document.querySelectorAll(".modal").forEach((m) =>
+        m.addEventListener("click", (e) => {
+          if (e.target === m) m.classList.remove("show");
+        }),
+      );
+
+      /* Admin login is available from the visible Admin button or Ctrl + Shift + A */
+      document.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "a") {
+          e.preventDefault();
+          openModal("loginModal");
+        }
+      });
+      function adminLogin(e) {
+        e.preventDefault();
+        const u = document.getElementById("adminUser").value.trim();
+        const p = document.getElementById("adminPass").value;
+        if (u === ADMIN_USER && p === ADMIN_PASS) {
+          sessionStorage.setItem("sweetAdminLoggedIn", "1");
+          closeModal("loginModal");
+          document.getElementById("admin").classList.add("show");
+          showAdminTab("dashboard");
+          document.getElementById("adminPass").value = "";
+          toast("Welcome to the admin dashboard");
+        } else toast("Invalid admin username or password");
+      }
+      function closeAdmin() {
+        sessionStorage.removeItem("sweetAdminLoggedIn");
+        document.getElementById("admin").classList.remove("show");
+      }
+      function openAdminIfLoggedIn() {
+        if (sessionStorage.getItem("sweetAdminLoggedIn") === "1") {
+          document.getElementById("admin").classList.add("show");
+          showAdminTab("dashboard");
+          return true;
+        }
+        return false;
+      }
+      function adminNav(tab, btn) {
+        if (!sessionStorage.getItem("sweetAdminLoggedIn")) {
+          openModal("loginModal");
+          return;
+        }
+        showAdminTab(tab, btn);
+      }
+      function showAdminTab(tab, btn) {
+        const buttons = [...document.querySelectorAll(".adminSide button")];
+        buttons.forEach((b) => b.classList.remove("active"));
+        if (btn) btn.classList.add("active");
+        const idx = {
+          dashboard: 0,
+          products: 1,
+          orders: 2,
+          messages: 3,
+          settings: 4,
+        }[tab];
+        if (!btn && Number.isInteger(idx) && buttons[idx])
+          buttons[idx].classList.add("active");
+        const title =
+          {
+            dashboard: "Dashboard",
+            products: "Products",
+            orders: "Orders",
+            messages: "Messages",
+            settings: "Settings",
+          }[tab] || "Dashboard";
+        document.getElementById("adminTitle").textContent = title;
+        const c = document.getElementById("adminContent");
+
+        if (tab === "dashboard") {
+          const revenue = orders.reduce((a, o) => a + Number(o.total || 0), 0);
+          const newOrders = orders.filter((o) => o.status === "New").length;
+          c.innerHTML = `
+   <div class="statGrid">
+    <div class="stat"><small>Total Products</small><strong>${products.length}</strong></div>
+    <div class="stat"><small>Cart Items</small><strong>${cart.reduce((a, x) => a + x.qty, 0)}</strong></div>
+    <div class="stat"><small>Total Orders</small><strong>${orders.length}</strong></div>
+    <div class="stat"><small>Total Sales</small><strong>${money(revenue)}</strong></div>
+   </div>
+   <div class="adminPanel">
+    <div class="adminPanelHeader"><h3 style="margin:0">Store Overview</h3><span class="statusBadge">${newOrders} new order(s)</span></div>
+    <div class="adminToolbar">
+      <button class="btn primary small" onclick="showAdminTab('products')">Manage Products</button>
+      <button class="btn outline small" onclick="showAdminTab('orders')">Manage Orders</button>
+      <button class="btn outline small" onclick="showAdminTab('messages')">Read Messages</button>
+      <button class="btn outline small" onclick="document.querySelector('#home').scrollIntoView();closeAdmin()">View Store</button>
+    </div>
+   </div>
+   <div class="adminPanel"><h3>Recent Orders</h3>${renderRecentOrders()}</div>`;
+        } else if (tab === "products") {
+          c.innerHTML = renderProductsAdmin();
+        } else if (tab === "orders") {
+          c.innerHTML = renderOrdersAdmin();
+        } else if (tab === "messages") {
+          c.innerHTML = renderMessagesAdmin();
+        } else if (tab === "settings") {
+          c.innerHTML = `
+   <div class="adminPanel">
+    <div class="adminPanelHeader"><h3 style="margin:0">Store Settings</h3><button class="btn primary small" onclick="saveStoreSettings()">Save Settings</button></div>
+    <div class="form">
+      <label>Store Name</label><input id="settingStoreName" value="${escapeAttr(localStorage.getItem("sweetStoreName") || "Sweet-Havean")}">
+      <label>Owner Email</label><input id="settingOwnerEmail" type="email" value="${escapeAttr(getOwnerEmail())}">
+      <label>Admin Username</label><input value="${ADMIN_USER}" readonly>
+      <p style="color:#8a7771;font-size:13px">Product prices, cart, orders and messages are stored locally in this browser. This is suitable for a demo/single-computer store. A real public shop needs a secure backend and database.</p>
+      <button class="btn danger small" onclick="resetStoreData()">Reset Demo Store Data</button>
+    </div>
+   </div>`;
+        }
+      }
+      function renderRecentOrders() {
+        if (!orders.length)
+          return '<div class="adminEmpty">No orders yet.</div>';
+        return `<div class="adminTableWrap"><table class="adminTable"><thead><tr><th>Order</th><th>Date</th><th>Total</th><th>Status</th></tr></thead><tbody>
+ ${orders
+   .slice()
+   .reverse()
+   .slice(0, 5)
+   .map(
+     (o) =>
+       `<tr><td>#${o.id}</td><td>${escapeHtml(o.date)}</td><td>${money(o.total)}</td><td><span class="statusBadge">${escapeHtml(o.status || "New")}</span></td></tr>`,
+   )
+   .join("")}
+ </tbody></table></div>`;
+      }
+      function renderProductsAdmin() {
+        return `<div class="adminPanel">
+  <div class="adminPanelHeader"><h3 style="margin:0">Product Catalog</h3><div class="adminToolbar"><input class="adminSearch" id="productAdminSearch" placeholder="Search products..." oninput="filterAdminProducts(this.value)"><button class="btn primary small" onclick="openProductEditor()">+ Add Product</button></div></div>
+  <div id="adminProductTable">${productTableHtml(products)}</div>
+ </div>`;
+      }
+      function productTableHtml(list) {
+        if (!list.length)
+          return '<div class="adminEmpty">No products found.</div>';
+        return `<div class="adminTableWrap"><table class="adminTable"><thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Actions</th></tr></thead><tbody>
+ ${list
+   .map(
+     (p) => `<tr>
+ <td><span class="adminThumb" style="background-image:url('${escapeAttr(p.img)}')"></span><b>${escapeHtml(p.name)}</b></td>
+ <td>${escapeHtml(p.cat)}</td>
+ <td><input id="price-${p.id}" type="number" min="1" step="1" value="${Number(p.price)}"></td>
+ <td><div class="adminActions"><button class="btn primary small" onclick="savePrice(${p.id})">Save</button><button class="btn outline small" onclick="editProduct(${p.id})">Edit</button><button class="btn danger small" onclick="deleteProduct(${p.id})">Delete</button></div></td>
+ </tr>`,
+   )
+   .join("")}</tbody></table></div>`;
+      }
+      function filterAdminProducts(q) {
+        const term = String(q || "")
+          .toLowerCase()
+          .trim();
+        const list = products.filter((p) =>
+          (p.name + " " + p.cat).toLowerCase().includes(term),
+        );
+        const target = document.getElementById("adminProductTable");
+        if (target) target.innerHTML = productTableHtml(list);
+      }
+      function savePrice(id) {
+        const p = products.find((x) => x.id === Number(id));
+        const input = document.getElementById("price-" + id);
+        if (!p || !input) {
+          toast("Product field not found");
+          return;
+        }
+        const value = Number(input.value);
+        if (!Number.isFinite(value) || value <= 0) {
+          toast("Enter a valid price");
+          input.focus();
+          return;
+        }
+        p.price = Math.round(value);
+        save();
+        renderProducts();
+        filterAdminProducts(
+          document.getElementById("productAdminSearch")?.value || "",
+        );
+        toast(`${p.name} price saved: ${money(p.price)}`);
+      }
+      function openProductEditor(id = null) {
+        const p = id ? products.find((x) => x.id === Number(id)) : null;
+        const name = prompt("Product name:", p?.name || "");
+        if (name === null) return;
+        const cat = prompt(
+          "Category (Brownies, Pastries, Cookies):",
+          p?.cat || "Brownies",
+        );
+        if (cat === null) return;
+        const price = prompt("Price in Rs:", p?.price || 450);
+        if (price === null) return;
+        const img = prompt("Image URL:", p?.img || "");
+        if (img === null) return;
+        const n = name.trim(),
+          c = cat.trim(),
+          pr = Number(price),
+          im = img.trim();
+        if (!n || !c || !Number.isFinite(pr) || pr <= 0 || !im) {
+          toast("Please enter valid product details");
+          return;
+        }
+        if (p) {
+          p.name = n;
+          p.cat = c;
+          p.price = Math.round(pr);
+          p.img = im;
+          toast("Product updated");
+        } else {
+          products.push({
+            id: Date.now(),
+            name: n,
+            cat: c,
+            price: Math.round(pr),
+            img: im,
+          });
+          toast("Product added");
+        }
+        save();
+        renderProducts();
+        showAdminTab("products");
+      }
+      function editProduct(id) {
+        openProductEditor(id);
+      }
+      function deleteProduct(id) {
+        const p = products.find((x) => x.id === Number(id));
+        if (!p) return;
+        if (!confirm(`Delete "${p.name}"?`)) return;
+        products = products.filter((x) => x.id !== Number(id));
+        cart = cart.filter((x) => x.id !== Number(id));
+        save();
+        renderProducts();
+        updateBadge();
+        showAdminTab("products");
+        toast("Product deleted");
+      }
+      function renderOrdersAdmin() {
+        if (!orders.length)
+          return `<div class="adminPanel"><div class="adminPanelHeader"><h3 style="margin:0">Customer Orders</h3></div><div class="adminEmpty">No orders yet. Orders placed from the store will appear here.</div></div>`;
+        return `<div class="adminPanel"><div class="adminPanelHeader"><h3 style="margin:0">Customer Orders</h3><button class="btn danger small" onclick="clearOrders()">Clear All Orders</button></div>
+ <div class="adminTableWrap"><table class="adminTable"><thead><tr><th>Order</th><th>Items</th><th>Date</th><th>Total</th><th>Status</th><th>Action</th></tr></thead><tbody>
+ ${orders
+   .slice()
+   .reverse()
+   .map(
+     (o) => `<tr>
+ <td><b>#${o.id}</b></td>
+ <td>${(o.items || [])
+   .map((i) => {
+     const p = products.find((x) => x.id === i.id);
+     return `${escapeHtml(p?.name || "Deleted product")} × ${i.qty}`;
+   })
+   .join("<br>")}</td>
+ <td>${escapeHtml(o.date)}</td><td>${money(o.total)}</td>
+ <td><select onchange="setOrderStatus(${o.id},this.value)"><option ${o.status === "New" ? "selected" : ""}>New</option><option ${o.status === "Processing" ? "selected" : ""}>Processing</option><option ${o.status === "Delivered" ? "selected" : ""}>Delivered</option><option ${o.status === "Cancelled" ? "selected" : ""}>Cancelled</option></select></td>
+ <td><button class="btn danger small" onclick="deleteOrder(${o.id})">Delete</button></td>
+ </tr>`,
+   )
+   .join("")}</tbody></table></div></div>`;
+      }
+      function deleteOrder(id) {
+        if (!confirm("Delete this order?")) return;
+        orders = orders.filter((o) => o.id !== Number(id));
+        save();
+        showAdminTab("orders");
+        toast("Order deleted");
+      }
+      function clearOrders() {
+        if (!orders.length) return;
+        if (!confirm("Delete all orders?")) return;
+        orders = [];
+        save();
+        showAdminTab("orders");
+        toast("All orders cleared");
+      }
+      function renderMessagesAdmin() {
+        if (!messages.length)
+          return `<div class="adminPanel"><div class="adminPanelHeader"><h3 style="margin:0">Contact Messages</h3></div><div class="adminEmpty">No customer messages yet.</div></div>`;
+        return `<div class="adminPanel"><div class="adminPanelHeader"><h3 style="margin:0">Contact Messages</h3><button class="btn danger small" onclick="clearMessages()">Clear All Messages</button></div>
+ <div class="adminTableWrap"><table class="adminTable"><thead><tr><th>Name</th><th>Email</th><th>Message</th><th>Date</th><th>Action</th></tr></thead><tbody>
+ ${messages
+   .slice()
+   .reverse()
+   .map(
+     (m) =>
+       `<tr><td>${escapeHtml(m.name)}</td><td>${escapeHtml(m.email)}</td><td>${escapeHtml(m.msg)}</td><td>${escapeHtml(m.date)}</td><td><button class="btn danger small" onclick="deleteMessage(${m.id})">Delete</button></td></tr>`,
+   )
+   .join("")}
+ </tbody></table></div></div>`;
+      }
+      function deleteMessage(id) {
+        if (!confirm("Delete this message?")) return;
+        messages = messages.filter((m) => m.id !== Number(id));
+        save();
+        showAdminTab("messages");
+        toast("Message deleted");
+      }
+      function clearMessages() {
+        if (!messages.length) return;
+        if (!confirm("Delete all messages?")) return;
+        messages = [];
+        save();
+        showAdminTab("messages");
+        toast("All messages cleared");
+      }
+      function saveStoreSettings() {
+        const n = document.getElementById("settingStoreName").value.trim();
+        const e = document.getElementById("settingOwnerEmail").value.trim();
+        if (!n || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) {
+          toast("Enter a valid store name and email");
+          return;
+        }
+        localStorage.setItem("sweetStoreName", n);
+        localStorage.setItem("sweetOwnerEmail", e);
+        toast("Settings saved");
+      }
+      function resetStoreData() {
+        if (
+          !confirm(
+            "Reset products, cart, orders and messages to the original demo state?",
+          )
+        )
+          return;
+        products = defaultProducts.map((x) => ({ ...x }));
+        cart = [];
+        orders = [];
+        messages = [];
+        localStorage.removeItem("sweetStoreName");
+        localStorage.removeItem("sweetOwnerEmail");
+        save();
+        renderProducts();
+        updateBadge();
+        showAdminTab("dashboard");
+        toast("Demo store reset");
+      }
+      function setOrderStatus(id, status) {
+        const o = orders.find((x) => x.id === Number(id));
+        if (!o) return;
+        o.status = status;
+        save();
+        showAdminTab("orders");
+        toast("Order status updated");
+      }
+      function escapeHtml(s) {
+        return String(s ?? "").replace(
+          /[&<>"']/g,
+          (m) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#039;",
+            })[m],
+        );
+      }
+      function escapeAttr(s) {
+        return escapeHtml(s).replace(/`/g, "&#096;");
+      }
+
+      renderProducts();
+      updateBadge();
+      if (window.location.hash.toLowerCase() === "#admin")
+        setTimeout(() => openModal("loginModal"), 150);
+      if (sessionStorage.getItem("sweetAdminLoggedIn") === "1")
+        setTimeout(() => openAdminIfLoggedIn(), 100);
+    </script>
+  </body>
+</html>
